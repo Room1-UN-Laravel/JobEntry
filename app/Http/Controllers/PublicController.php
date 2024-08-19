@@ -21,7 +21,12 @@ class PublicController extends Controller
     }
 
 
+    public function detail()
+    {
+        return view('job-detail');
+    }
     /**
+     *
      * Show the form for creating a new resource.
      */
     public function create()

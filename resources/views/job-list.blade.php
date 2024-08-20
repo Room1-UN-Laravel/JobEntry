@@ -2,7 +2,7 @@
 
 @section('content')
 
-        @include('includes.jobHeader')
+        @include('includes.header')
         @include('includes.job')
     
     @endsection

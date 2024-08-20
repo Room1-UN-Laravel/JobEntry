@@ -10,3 +10,4 @@ Route::get('/', function () {
 
 Route::get('index',[PublicController::class,'index'])->name('index');
 Route::get('about',[PublicController::class,'about'])->name('about');
+Route::get('job-list',[PublicController::class,'job'])->name('job-list');

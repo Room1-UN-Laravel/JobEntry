@@ -19,7 +19,14 @@ class PublicController extends Controller
     {
         return view('about');
     }
-
+    public function four0four()
+    {
+        return view('errors.404');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
 
     /**
      * Show the form for creating a new resource.

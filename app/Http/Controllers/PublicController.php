@@ -19,7 +19,14 @@ class PublicController extends Controller
     {
         return view('about');
     }
-
+    public function four0four()
+    {
+        return view('errors.404');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
     public function category()
     {
         return view('category');

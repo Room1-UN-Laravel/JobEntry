@@ -17,17 +17,27 @@ class PublicController extends Controller
 
     public function about()
     {
-        return view('about');
+        return view('about', ['activePage' => 'About Us']);
     }
 
     public function category()
     {
-        return view('category');
+        return view('category', ['activePage' => 'Category']);
     }
 
     public function testimonial()
     {
-        return view('testimonial');
+        return view('testimonial', ['activePage' => 'Testimonial']);
+    }
+
+    public function detail()
+    {
+        return view('job-detail', ['activePage' => 'Job Detail']);
+    }
+
+    public function jobList()
+    {
+        return view('job-list', ['activePage' => 'Job List']);
     }
 
     /**

@@ -3,7 +3,7 @@
 @extends('layouts.main')
 
 
-@section('detail')
+@section('content')
 @include('includes.header')
 @include('includes.detail')
 @endsection

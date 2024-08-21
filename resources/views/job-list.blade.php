@@ -1,3 +1,6 @@
+@push('pageHeader')
+Job List
+@endpush
 @extends('layouts.main')
 
 @section('content')

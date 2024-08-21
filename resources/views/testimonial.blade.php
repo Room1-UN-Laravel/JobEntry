@@ -1,3 +1,6 @@
+@push('pageHeader')
+Testimonial
+@endpush
 @extends('layouts.main')
 
 @section('content')

@@ -28,6 +28,14 @@ class PublicController extends Controller
     {
         return view('category');
     }
+<<<<<<< HEAD
+=======
+
+    public function testimonial()
+    {
+        return view('testimonial');
+    }
+>>>>>>> 6fb31f516369ca03811cc5fb67b17f73c273f01f
 
     public function testimonial()
     {

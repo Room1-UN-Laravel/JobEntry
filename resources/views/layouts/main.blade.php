@@ -9,8 +9,6 @@
 @include('includes.spinner')
 @include('includes.navbar')
 
-
-
 @yield('content')
 
 @include('includes.footer')

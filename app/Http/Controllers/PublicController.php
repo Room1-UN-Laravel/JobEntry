@@ -25,10 +25,10 @@ class PublicController extends Controller
         return view('category');
     }
 
-    public function testimonial()
+    /*public function testimonial()
     {
         return view('testimonial');
-    }
+    }*/
 
     public function detail()
     {

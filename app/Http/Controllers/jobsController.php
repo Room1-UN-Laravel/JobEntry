@@ -20,7 +20,7 @@ class jobsController extends Controller
         return view('jobs',  compact('job'));
     }
 
-   
+
     //
     /**
      * Show the form for creating a new resource.
@@ -78,7 +78,7 @@ class jobsController extends Controller
         $categories = Category::select('id', 'category_name')->get();
         return view('Edit_job', compact('job', 'categories'));
         // $categories = Category::all();
-       
+
     }
 
     /**
@@ -115,7 +115,7 @@ class jobsController extends Controller
 
 
 
-// لم يتم مراجعةالباقي 
+    // لم يتم مراجعةالباقي 
     /**
      * Remove the specified resource from storage.
      */
@@ -123,7 +123,7 @@ class jobsController extends Controller
     // {
     //     Job::where('id', $id)->delete();
 
-    //     return redirect()->route('jobs');
+    //     return redirect()->route('job.destroy');
     // }
 
 
@@ -145,13 +145,13 @@ class jobsController extends Controller
     //     Job::where('id', $id)->restore();
 
 
-    //     return redirect()->route('jobs.showDeleted');
+    //     return redirect()->route('job.restore');
     // }
 
     // public function forceDelete(Request $request, string $id)
     // {
     //     // return "delete page";
     //     Job::where('id', $id)->forceDelete();
-    //     return redirect()->route('jobs');
+    //     return redirect()->route('job.forcedelete');
     // }
 }

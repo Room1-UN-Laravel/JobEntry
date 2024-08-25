@@ -16,6 +16,7 @@
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{{route('job-list')}}" class="dropdown-item">Job List</a>
                             <a href="{{route('detail')}}" class="dropdown-item">Job Detail</a>
+
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -25,21 +26,9 @@
                             <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="#" class="nav-item nav-link">Contact</a>
                 </div>
                 <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
-        <script>
-            anchors = Array.from(document.getElementsByClassName("nav-item nav-link"))
-
-            anchors.forEach(function (anchor) {
-                if (anchor.href === window.location.href) {
-                    anchor.className = "nav-item nav-link active"
-                } else {
-                    anchor.className = "nav-item nav-link"
-                } 
-            })
-
-        </script>
         <!-- Navbar End -->

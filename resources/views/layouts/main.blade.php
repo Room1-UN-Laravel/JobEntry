@@ -11,6 +11,8 @@
 
 @yield('content')
 
+
+
 @include('includes.footer')
 
         <!-- Back to Top -->

@@ -1,11 +1,11 @@
-@push('pageHeader')
-Job List
-@endpush
 @extends('layouts.main')
 
+@push('pageHeader')
+  Job List
+@endpush
+
 @section('content')
-
-@include('includes.header')
-@include('includes.job')
-
+  @include('includes.header')
+  @include('includes.job')
 @endsection
+

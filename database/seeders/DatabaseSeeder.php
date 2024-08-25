@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Job;
 use App\Models\contact;
 use App\Models\User;
+use App\Models\Testimonial;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +20,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        User::factory(10)->create();
+        Testimonial::factory(10)->create();
+
 
         Category::factory(5)->create();
         Job::factory(5)->create();
@@ -28,5 +33,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
     }
 }

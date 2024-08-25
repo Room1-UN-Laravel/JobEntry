@@ -15,3 +15,5 @@ Route::get('category',[PublicController::class,'category'])->name('category');
 Route::get('testimonial',[PublicController::class,'testimonial'])->name('testimonial');
 Route::get('detail',[PublicController::class,'detail'])->name('detail');
 
+
+

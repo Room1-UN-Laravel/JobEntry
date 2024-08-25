@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\testimonial;
+use App\Models\Category;
+use App\Models\Job;
+use App\Models\contact;
 use App\Models\User;
 use App\Models\Testimonial;
 
@@ -19,9 +23,16 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         Testimonial::factory(10)->create();
 
-        /*User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);*/
+
+        Category::factory(5)->create();
+        Job::factory(5)->create();
+        testimonial::factory(5)->create();
+        contact::factory(5)->create();
+
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+
     }
 }

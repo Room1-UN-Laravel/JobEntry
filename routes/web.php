@@ -23,7 +23,6 @@ Route::get('contact',[PublicController::class,'contact'])->name('contact');
 Route::get('category',[PublicController::class,'category'])->name('category');
 Route::get('testimonial',[TestimonialController::class,'testimonial'])->name('testimonial');
 Route::get('detail',[PublicController::class,'detail'])->name('detail');
-
 //Admin dashboard
 Route::get('job-list',[PublicController::class,'jobList'])->name('job-list');
 

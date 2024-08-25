@@ -40,11 +40,12 @@ class PublicController extends Controller
     }
 
 
-
-    public function testimonial()
+    /*public function testimonial()
     {
         return view('testimonial');
-    }
+    }*/
+
+
     public function detail()
     {
         return view('job-detail');

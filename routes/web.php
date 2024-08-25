@@ -14,4 +14,5 @@ Route::get('job-list',[PublicController::class,'job'])->name('job-list');
 Route::get('category',[PublicController::class,'category'])->name('category');
 Route::get('testimonial',[PublicController::class,'testimonial'])->name('testimonial');
 Route::get('detail',[PublicController::class,'detail'])->name('detail');
+Route::get('job-list',[PublicController::class,'jobList'])->name('job-list');
 

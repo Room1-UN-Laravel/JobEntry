@@ -1,3 +1,6 @@
+@push('pageHeader')
+Category
+@endpush
 @extends('layouts.main')
 
 @section('content')

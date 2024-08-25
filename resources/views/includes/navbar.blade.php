@@ -14,8 +14,9 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="#" class="dropdown-item">Job List</a>
-                            <a href="#" class="dropdown-item">Job Detail</a>
+                            <a href="{{route('job-list')}}" class="dropdown-item">Job List</a>
+                            <a href="{{route('detail')}}" class="dropdown-item">Job Detail</a>
+
                         </div>
                     </div>
                     <div class="nav-item dropdown">

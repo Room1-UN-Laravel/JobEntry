@@ -28,7 +28,7 @@ class TestimonialFactory extends Factory
             'description' => fake()->text(),
             'pub' => fake()->numberBetween(0, 1),
             #'image' => basename(fake()->image(public_path('assets/img/admins'))),
-            'image' => $this->generateRandomImage(public_path('assets/img/admins/')),
+            'image' => $this->generateRandomImage(public_path('assets/img/admins/testimonials/')),
           #for when we make a relation w/the admins
 //      'adminID' => fake()->numberBetween(1, 10),
         ];

@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Models\Testimonial; #as it is not in the same directory no more
 
-use App\Models\Testimonial;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class TestimonialController extends Controller
 {
+
+
     public function testimonial()
     {
         $tests = Testimonial::where('pub', 1)

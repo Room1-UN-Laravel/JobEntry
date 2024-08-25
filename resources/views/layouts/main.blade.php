@@ -11,8 +11,6 @@
 
 @yield('content')
 
-
-
 @include('includes.footer')
 
         <!-- Back to Top -->
@@ -21,10 +19,7 @@
 
 @include('includes.Js_lib')
 
-
-
-
-
 </body>
 
-</html>
+</html>  
+

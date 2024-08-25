@@ -1,3 +1,4 @@
+
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
     <a href="{{ route('index') }}" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
@@ -16,8 +17,10 @@
                 <div class="dropdown-menu rounded-0 m-0">
                     <a href="{{ route('job-list') }}" class="dropdown-item {{ request()->routeIs('job-list') ? 'active' : '' }}">Job List</a>
                     <a href="{{ route('detail') }}" class="dropdown-item {{ request()->routeIs('detail') ? 'active' : '' }}">Job Detail</a>
+
                 </div>
             </div>
+
             
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle {{ request()->routeIs('category', 'testimonial') ? 'active' : '' }}" data-bs-toggle="dropdown">Pages</a>

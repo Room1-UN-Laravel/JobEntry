@@ -20,6 +20,13 @@ class PublicController extends Controller
         return view('about');
     }
 
+   
+    public function contact()
+    {
+        return view('contact');
+    }
+
+
 
     public function job()
     {
@@ -33,11 +40,11 @@ class PublicController extends Controller
     }
 
 
+
     public function testimonial()
     {
         return view('testimonial');
     }
-
     public function detail()
     {
         return view('job-detail');
@@ -48,7 +55,6 @@ class PublicController extends Controller
     {
         return view('job-list');
     }
-
 
     /**
      *

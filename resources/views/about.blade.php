@@ -1,3 +1,6 @@
+@push('pageHeader')
+About Us
+@endpush
 @extends('layouts.main')
 
 @section('content')
@@ -7,5 +10,4 @@
 @include('includes.about')
 
 
-
-    @endsection
+@endsection

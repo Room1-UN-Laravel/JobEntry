@@ -19,10 +19,7 @@
 
 @include('includes.Js_lib')
 
-
-
-
-
 </body>
 
-</html>
+</html>  
+

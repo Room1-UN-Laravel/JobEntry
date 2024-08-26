@@ -1,30 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('admin.layouts.main')
+@section('head')
+  @include('admin.includes.head')
+  @endsection
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Jobs</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-    rel="stylesheet">
-  <style>
-    * {
-      font-family: "Lato", sans-serif;
-    }
-  </style>
-</head>
+  @section('content')
+  <!-- page content -->
+    <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3>Manage Jobs</h3>
+        </div>
 
-<body>
-  <main>
-    <div class="container my-5">
-      <div class="bg-light p-5 rounded">
-        <h2 class="fw-bold fs-2 mb-5 pb-2">All Jobs</h2>
-        <table class="table table-hover">
+        <div class="title_right">
+          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">Go!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 ">
+          <div class="x_panel">
+            <div class="x_title">
+              @include('admin.includes.alert')
+              <h2>List of Jobs</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="#">Settings 1</a>
+                      <a class="dropdown-item" href="#">Settings 2</a>
+                    </div>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="row">
+                    <div class="col-sm-12">
+                      <div class="card-box table-responsive">
+         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
           <thead>
             <tr class="table-dark">
               <th scope="col">Title</th>
@@ -45,7 +72,7 @@
           </thead>
           <tbody>
           
-         @foreach($job as $job)
+         @foreach($jobs as $job)
             <tr>
               <td scope="row">{{$job['title']}}</td>
               <td>{{ Str::limit($job['description'], 15,'....')}}</td>
@@ -58,19 +85,25 @@
               <td>{{$job['job_nature']}}</td>
               <td>{{$job['Vacancy']}}</td>
               <!-- <td><img src="{{ asset('assets/img/job/'.$job['img']) }}" alt="Job Image" width="50"></td> -->
-              <td><a href="{{route('job.edit', $job['id'])}}">Edit</a></td>
-              <td><a href="{{route('job.show', $job['id'])}}">Show</a></td>
-              <td><a href="{{route('job.destroy', $job['id'])}}" onclick=" return confirm('Are you sure you want to delete?')">delete</a></td>
+              <td><a href="{{route('admin.jobs.edit', $job['id'])}}">Edit</a></td>
+              <td><a href="{{route('admin.jobs.show', $job['id'])}}">Show</a></td>
+              <td><a href="{{route('admin.jobs.destroy', $job['id'])}}" onclick=" return confirm('Are you sure you want to delete?')">delete</a></td>
             </tr>
             @endforeach 
           </tbody>
         </table>
+       </div>
+            </div>
+        </div>
+      </div>
+          </div>
+        </div>
       </div>
     </div>
-  </main>
-
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-</html>
+  </div>
+<!-- /page content -->
+  @endsection
+        
+  @section('javaLib')
+  @include('admin.includes.javascript_libs')
+  @endsection

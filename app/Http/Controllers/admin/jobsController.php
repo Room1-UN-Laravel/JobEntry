@@ -16,9 +16,11 @@ class jobsController extends Controller
      */
     public function index()
     {
-        $job = Job::with('category')->get();
-        // dd($jobs);
-        return view('jobs',  compact('job'));
+
+        $jobs = Job::with('category')->get();
+        $page = "Jobs";
+        $current_user_fullname  = "Engy";
+        return view('admin.jobs',  compact(['jobs','page','current_user_fullname']));
     }
 
 
@@ -28,9 +30,10 @@ class jobsController extends Controller
      */
     public function create()
     {
-        // $categories = Category::all();
-        $categories = Category::select('id', 'category_name')->get();
-        return view('Add_job', compact('categories'));
+        $categories = Category::get();
+        $page = "Add Job";
+        $current_user_fullname  = "Engy";
+        return view('admin.Add_job', compact(['categories','page','current_user_fullname']));
     }
 
     /**

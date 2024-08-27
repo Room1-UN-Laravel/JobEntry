@@ -24,8 +24,8 @@ class PublicController extends Controller
             ->get();
 
 
-            
-            return view('index', compact('jobs', 'tests')); //,'jobs'));
+
+            return view('index', compact('tests')); //,'jobs'));
     }
 
 

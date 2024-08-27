@@ -19,20 +19,34 @@ class PublicController extends Controller
     {
         return view('about');
     }
+
    
     public function contact()
     {
         return view('contact');
     }
+
+
+
+    public function job()
+    {
+        return view('job-list');
+    }
+
+
     public function category()
     {
         return view('category');
     }
 
+<<<<<<< HEAD
     public function testimonial()
     {
         return view('testimonial');
     }
+=======
+
+>>>>>>> 241092a519a68dee9d90bb05ef0aa2994412b713
 
    
     public function detail()
@@ -40,11 +54,14 @@ class PublicController extends Controller
         return view('job-detail');
     }
 
+
     public function jobList()
     {
         return view('job-list');
     }
+
     /**
+     *
      * Show the form for creating a new resource.
      */
     public function create()

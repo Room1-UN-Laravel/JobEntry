@@ -22,7 +22,8 @@
                     </ul>
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
-                        @foreach($job as $job)
+
+                    {{--   @foreach($jobs as $job)
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
@@ -44,15 +45,14 @@
                                     </div>
                                 </div>
                             </div>
-@endforeach
+@endforeach --}}
 
 
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
-                        
 
-                        
+
+
                 </div>
             </div>
-        
+
        <!-- Jobs End  -->
-        

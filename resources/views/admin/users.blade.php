@@ -56,7 +56,6 @@
                         <tr>
                           <th>Registration Date</th>
                           <th>Name</th>
-                          <th>Username</th>
                           <th>Email</th>
                           <th>Active</th>
                           <th>Edit</th>
@@ -65,29 +64,15 @@
 
 
                       <tbody>
-                        <?php
-                        foreach ($result as $user)
-                        {
-                          $id = $user['id'];
-                          #1 Jan 2023 
-                          $timestamp = strtotime($user['created_at']);
-                          $registeration_date = date('j M Y', $timestamp); 
-                          $fullname = $user['fullname'];
-                          $username = $user['username'];
-                          $email = $user['email'];
-                          $active = $user['active'] ? 'Yes' : 'No';
-                        ?>
+                        @foreach ($users as $user)
                         <tr>
-                          <td><?php echo $registeration_date ?></td>
-                          <td><?php echo $fullname ?></td>
-                          <td><?php echo $username ?></td>
-                          <td><?php echo $email ?></td>
-                          <td><?php echo $active ?></td>
-                          <td><a href="edituser.php?id=<?php echo $id ?>"><img src="./images/edit.png" alt="Edit"></a></td>
+                          <td>{{$user['created_at']}}</td>
+                          <td>{{$user['name']}}</td>
+                          <td>{{$user['email']}}</td>
+                          <td>{{$user['active']}}</td>
+                          <td><a href="{{route('users.edit',$user['id'])}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
                         </tr>
-                        <?php 
-                        }
-                        ?>
+                       @endforeach
                       </tbody>
                     </table>
                   </div>

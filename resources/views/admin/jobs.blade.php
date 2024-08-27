@@ -64,9 +64,7 @@
               <th scope="col">CategoryName</th>
               <th scope="col">JobNature</th>
               <th scope="col">Vacancy</th>
-              <!-- <th scope="col">Image</th> -->
-              <th scope="col">Edit</th>
-              <th scope="col">Show</th>
+              <th scope="col">Edit</th>  
               <th scope="col">Delete</th>
             </tr>
           </thead>
@@ -81,13 +79,19 @@
               <td>{{$job['min_salary']}}</td>
               <td>@if($job['published'] === 1) YES @else NO @endif</td>
               <td>{{$job['company_name']}}</td>
-              <td>{{$job['category']['category_name']}}</td>
+              <td>{{$job['category']['name']}}</td>
               <td>{{$job['job_nature']}}</td>
               <td>{{$job['Vacancy']}}</td>
               <!-- <td><img src="{{ asset('assets/img/job/'.$job['img']) }}" alt="Job Image" width="50"></td> -->
-              <td><a href="{{route('admin.jobs.edit', $job['id'])}}">Edit</a></td>
-              <td><a href="{{route('admin.jobs.show', $job['id'])}}">Show</a></td>
-              <td><a href="{{route('admin.jobs.destroy', $job['id'])}}" onclick=" return confirm('Are you sure you want to delete?')">delete</a></td>
+              <td><a href="{{route('jobs.edit', $job['id'])}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
+              <td><form action="{{route('jobs.destroy',$job['id'])}}" method="post">
+                      @csrf
+                      @method('DELETE')
+                     <button type="submit" value="delete" onclick="return confirm('Are you sure?')" class="btn btn-link m-0 p-0">
+                     <img src="{{asset('assets/admin/images/delete.png')}}" alt="Edit">
+                     </button>
+                    </form>
+                  </td>
             </tr>
             @endforeach 
           </tbody>

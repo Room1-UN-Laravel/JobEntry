@@ -9,7 +9,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3>Manage Categories</h3>
+          <h3>Manage Testimonials</h3>
         </div>
 
         <div class="title_right">
@@ -31,7 +31,7 @@
           <div class="x_panel">
             <div class="x_title">
               @include('admin.includes.alert')
-              <h2>List of Categories</h2>
+              <h2>List of Testimonials</h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -54,22 +54,24 @@
               <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
-                    <th>Category Name</th>
+                    <th>Name</th>
+                    <th>profession</th>
                     <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
                 
-                  @foreach($categories as $category)
+                  @foreach($testimonials as $testimonial)
                   <tr>
-                    <td>{{$category['name']}}</td>
-                    <td><a href="{{route('categories.edit',$category['id'])}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
+                    <td>{{$testimonial['name']}}</td>
+                    <td>{{$testimonial['profession']}}</td>
+                    <td><a href="{{route('testimonials.edit',$testimonial['id'])}}"><img src="{{asset('assets/admin/images/edit.png')}}" alt="Edit"></a></td>
                     <td>
-                     <form action="{{route('categories.destroy',$category['id'])}}" method="post">
+                     <form action="{{route('testimonials.destroy',$testimonial['id'])}}" method="post">
                       @csrf
                       @method('DELETE')
-                     <button type="submit" value="delete" onclick="return confirm('Are you sure?')" class="btn btn-link m-0 p-0">
+                     <button type="submit" value="delete" onclick="return confirm('Are you sure ?')" class="btn btn-link m-0 p-0">
                      <img src="{{asset('assets/admin/images/delete.png')}}" alt="Edit">
                      </button>
                     </form>

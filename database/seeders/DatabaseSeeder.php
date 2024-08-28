@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         Category::factory(5)->create();
         Job::factory(5)->create();
         testimonial::factory(5)->create();
+        //there is no model for contact is it nesecary?
         contact::factory(5)->create();
 
         // User::factory()->create([

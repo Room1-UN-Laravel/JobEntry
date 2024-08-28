@@ -16,7 +16,7 @@ class PublicController extends Controller
      */
     public function index()
     {
-            //$jobs = Job::with('category')->get();
+            $jobs = Job::with('category')->get();
 
             $tests = Testimonial::where('pub', 1)
             ->orderBy('updated_at', 'DESC')
@@ -25,7 +25,7 @@ class PublicController extends Controller
 
 
 
-            return view('index', compact('tests')); //,'jobs'));
+            return view('index', compact('jobs', 'tests'));
     }
 
 

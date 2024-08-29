@@ -16,15 +16,24 @@ class PublicController extends Controller
      */
     public function index()
     {
-        //$categories = Category::with('job')->get();
-        //$jobs = Job::with('category')->get();
+        $categories = Category::with('jobs')->get();
+        $jobs = Job::with('category')
+        ->latest()
+        ->take('3')
+        ->get();
 
             $tests = Testimonial::where('pub', 1)
-            ->orderBy('updated_at', 'DESC')
-            ->limit(3)
+            ->latest()
+            ->take('3')
             ->get();
+// dd($jobs);
+            return view('index', compact('tests', 'categories', 'jobs'));
+    }
 
-            return view('index', compact('tests')); //'categories', 'jobs'));
+    public function jobs()
+    {
+        $categories = Category::limit(4)->with('latest_jobs')->get();
+        return view('jobs',compact('categories'));
     }
 
 

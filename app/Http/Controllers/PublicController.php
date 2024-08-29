@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -24,6 +25,12 @@ class PublicController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+    
+    public function jobs()
+    {
+        $categories = Category::limit(4)->with('latest_jobs')->get();
+        return view('jobs',compact('categories'));
     }
 
 

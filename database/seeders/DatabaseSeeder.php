@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         //User::factory(10)->create();
         //Testimonial::factory(10)->create();
-        Category::factory(5)->create();
-       // Job::factory(5)->create();
+        Category::factory(10)->create();
+        Job::factory(30)->create();
         //Testimonial::factory(5)->create();
        // contact::factory(5)->create();
 

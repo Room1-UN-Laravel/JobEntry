@@ -13,4 +13,12 @@ class Category extends Model
         'name',
         'description',
     ];
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
+    public function latest_jobs()
+    {
+        return $this->hasMany(Job::class)->latest()->take(3);
+    }
 }

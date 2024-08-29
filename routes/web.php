@@ -25,6 +25,6 @@ Route::get('testimonial',[TestimonialController::class,'testimonial'])->name('te
 Route::get('detail',[PublicController::class,'detail'])->name('detail');
 //Admin dashboard
 Route::get('job-list',[PublicController::class,'jobList'])->name('job-list');
-
+Route::get('jobs',[PublicController::class,'jobs'])->name('jobs');
 
 

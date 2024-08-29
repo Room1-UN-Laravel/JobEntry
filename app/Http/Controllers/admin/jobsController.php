@@ -18,7 +18,7 @@ class jobsController extends Controller
     {
         $job = Job::with('category')->get();
         // dd($jobs);
-        return view('jobs',  compact('job'));
+        return view('jobs',  compact('jobs'));
     }
 
 
@@ -116,7 +116,7 @@ class jobsController extends Controller
 
 
 
-    // لم يتم مراجعةالباقي 
+    // لم يتم مراجعةالباقي
     /**
      * Remove the specified resource from storage.
      */

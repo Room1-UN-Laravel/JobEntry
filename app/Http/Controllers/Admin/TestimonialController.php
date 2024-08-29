@@ -18,19 +18,7 @@ class TestimonialController extends Controller
         return view('testimonial', compact('tests'));
         }
 
-    public function LatestTestimonials()
-    {
-        /*
-        #SELECT * FROM `products` ORDER BY updated_at DESC limit 3;
-        */
-        #$products = Product::orderBy('updated_at', 'desc')->limit(3)->get();
-        $tests = Testimonial::where('pub', 1)
-        ->orderBy('updated_at', 'DESC')
-        ->limit(3)
-        ->get();
-
-        return view('index', compact('tests'));
-    }
+        
 
    /*    #2)
      * Show the form for creating a new resource.

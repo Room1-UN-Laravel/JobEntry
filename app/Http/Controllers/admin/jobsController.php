@@ -19,7 +19,7 @@ class jobsController extends Controller
 
         $jobs = Job::with('category')->get();
         $page = "Jobs";
-        $current_user_fullname = "Engy";
+        $current_user_fullname = "Engy";//need to change
         return view('admin.jobs', compact(['jobs', 'page', 'current_user_fullname']));
     }
 

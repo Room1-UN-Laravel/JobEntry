@@ -1,13 +1,6 @@
 <?php
 
 namespace Database\Seeders;
-<<<<<<< HEAD
-||||||| f9039ba
-
-use App\Models\testimonial;
-=======
-
->>>>>>> 442343fd3e0288a45e606b96422c485f05a1a1cb
 use App\Models\Category;
 use App\Models\Job;
 use App\Models\contact;
@@ -32,7 +25,7 @@ class DatabaseSeeder extends Seeder
         //Testimonial::factory(5)->create();
        // contact::factory(5)->create();
 
-       
+
         Testimonial::factory(10)->create();
 
 

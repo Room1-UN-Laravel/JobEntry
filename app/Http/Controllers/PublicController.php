@@ -1,12 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Testimonial;
-use App\Models\Job;
-use App\Http\Controllers\Controller;
-use App\Traits\UploadFileTrait;
-use App\Models\Category;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -16,16 +12,7 @@ class PublicController extends Controller
      */
     public function index()
     {
-            $jobs = Job::with('category')->get();
-
-            $tests = Testimonial::where('pub', 1)
-            ->orderBy('updated_at', 'DESC')
-            ->limit(3)
-            ->get();
-
-
-
-            return view('index', compact('jobs', 'tests'));
+        return view('index');
     }
 
 
@@ -34,10 +21,23 @@ class PublicController extends Controller
         return view('about');
     }
 
-
+   
     public function contact()
     {
         return view('contact');
+    }
+    
+    public function jobs()
+    {
+        $categories = Category::limit(4)->with('latest_jobs')->get();
+        return view('jobs',compact('categories'));
+    }
+
+
+
+    public function job()
+    {
+        return view('job-list');
     }
 
 
@@ -47,7 +47,13 @@ class PublicController extends Controller
     }
 
 
-    public function jobDetail()
+    /*public function testimonial()
+    {
+        return view('testimonial');
+    }*/
+
+
+    public function detail()
     {
         return view('job-detail');
     }

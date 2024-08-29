@@ -24,13 +24,13 @@ Route::get('job/detail',[PublicController::class,'jobDetail'])->name('detail');
 Route::get('job/list',[PublicController::class,'jobList'])->name('job-list');
 
 
-//Admin dashboard
+
+Route::get('job-list',[PublicController::class,'jobList'])->name('job-list');
+Route::get('jobs',[PublicController::class,'jobs'])->name('jobs');
+
 Route::get('testimonial',[TestimonialController::class,'testimonial'])->name('testimonial');
 
 
 
-
-
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');

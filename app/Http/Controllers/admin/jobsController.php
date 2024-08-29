@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Job;
 use App\Traits\UploadFileTrait;
-use App\Models\Category;
+use Illuminate\Http\Request;
 
 class jobsController extends Controller
 {
@@ -16,11 +16,12 @@ class jobsController extends Controller
      */
     public function index()
     {
-        $job = Job::with('category')->get();
-        // dd($jobs);
-        return view('jobs',  compact('jobs'));
-    }
 
+        $jobs = Job::with('category')->get();
+        $page = "Jobs";
+        $current_user_fullname = "Engy";//need to change
+        return view('admin.jobs', compact(['jobs', 'page', 'current_user_fullname']));
+    }
 
     //
     /**
@@ -28,9 +29,10 @@ class jobsController extends Controller
      */
     public function create()
     {
-        // $categories = Category::all();
-        $categories = Category::select('id', 'category_name')->get();
-        return view('Add_job', compact('categories'));
+        $categories = Category::get();
+        $page = "Add Job";
+        $current_user_fullname = "Engy";
+        return view('admin.Add_job', compact(['categories', 'page', 'current_user_fullname']));
     }
 
     /**
@@ -54,11 +56,9 @@ class jobsController extends Controller
         $data['published'] = isset($request->published);
         $data['img'] = $this->uploadFile($request->img, 'assets/img/job/');
 
-
-
         Job::create($data);
         // return redirect()->route('jobs');
-        return redirect()->route('index');
+        return redirect()->route('jobs.index');
     }
 
     /**
@@ -76,8 +76,10 @@ class jobsController extends Controller
     public function edit(string $id)
     {
         $job = Job::findOrFail($id);
-        $categories = Category::select('id', 'category_name')->get();
-        return view('Edit_job', compact('job', 'categories'));
+        $categories = Category::select('id', 'name')->get();
+        $page = "Add Category";
+        $current_user_fullname = "Engy";
+        return view('admin.Edit_job', compact('job', 'categories', 'page', 'current_user_fullname'));
         // $categories = Category::all();
 
     }
@@ -102,31 +104,26 @@ class jobsController extends Controller
         ]);
         $data['published'] = isset($request->published);
 
-
         ///
         if ($request->hasFile('img')) {
             $data['img'] = $this->uploadFile($request->img, 'assets/img/job/');
         }
         Job::where('id', $id)->update($data);
 
-        return redirect()->route('index');
+        return redirect()->route('jobs.index');
     }
 
-
-
+    public function destroy(string $id)
+    {
+        Job::where('id', $id)->delete();
+        return redirect()->route('jobs.index');
+    }
 
 
     // لم يتم مراجعةالباقي
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(string $id)
-    // {
-    //     Job::where('id', $id)->delete();
-
-    //     return redirect()->route('job.destroy');
-    // }
-
 
     // public function showDeleted()
     // {
@@ -134,17 +131,12 @@ class jobsController extends Controller
     //     $jobs = Job::onlyTrashed()->get();
     //     return view('trashedCars', compact('jobs'));
 
-
     // }
-
-
-
 
     // public function restore(string $id)
     // {
 
     //     Job::where('id', $id)->restore();
-
 
     //     return redirect()->route('job.restore');
     // }

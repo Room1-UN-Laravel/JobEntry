@@ -28,3 +28,7 @@ Route::get('job-list',[PublicController::class,'jobList'])->name('job-list');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

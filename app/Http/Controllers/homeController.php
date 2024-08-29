@@ -1,33 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\admin;
-use App\Http\Controllers\Controller;
-use App\Models\Job;
-use App\Traits\UploadFileTrait;
-use App\Models\Category;
-use App\Models\Home;
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 
-class homeController extends Controller
+class HomeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Create a new controller instance.
+     *
+     * @return void
      */
-    public function index1()
+    public function __construct()
     {
-    
-        $jobs = Job::with('category')->get();
-        return view('index', compact('jobs'));
-
+        $this->middleware('auth');
     }
 
-
-    public function indexD()
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-        $job = Job::with('category')->get();
-        return view('job-list', compact('job'));
-        // return view('job-list');
+        return view('home');
     }
-    // //
- 
 }

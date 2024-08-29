@@ -52,7 +52,6 @@
 									<br />
         <form action="{{route('jobs.store')}}" method="POST" class="px-md-5" enctype="multipart/form-data">
           @csrf
-
           <div class="form-group mb-3 row">
             <label for="" class="form-label col-md-2 fw-bold text-md-end">Job Title:</label>
             <div class="col-md-10">
@@ -130,7 +129,7 @@
               <select name="category_id" id="category_id" class="form-control">
                 <option value="">Select Category</option>
                 @foreach($categories as $category)
-                <option value="{{$category->id}}" @selected(old('category_id', $job->category_id ?? '') == $category->id)>{{$category->category_name}}</option>
+                <option value="{{$category->id}}" @selected(old('category_id') == $category->id)>{{$category->name}}</option>
                 @endforeach
               </select>
               @error('category_id')
@@ -173,11 +172,13 @@
              </div>
            </div>
 
-          <div class="text-md-end">
-            <button class="btn mt-4 btn-secondary text-white fs-5 fw-bold border-0 py-2 px-md-5">
-              Add Job
-            </button>
-          </div>
+           <div class="ln_solid"></div>
+						<div class="form-group mb-3 row">
+								<div class="col-md-6 col-sm-6 offset-md-3">
+									<button class="btn btn-primary" type="button">Cancel</button>
+									<button type="submit" class="btn btn-success">Add</button>
+								</div>
+						</div>
         </form>
         @if(isset($Job->img))
          <img src="{{ asset('assets/img/job/' . $job->img) }}" alt="" width="100">

@@ -10,7 +10,7 @@
 				<div class="">
 					<div class="page-title">
 						<div class="title_left">
-							<h3>Manage Categories</h3>
+							<h3>Manage Testimonials</h3>
 						</div>
 
 						<div class="title_right">
@@ -30,7 +30,7 @@
 							<div class="x_panel">
 								<div class="x_title">
 								  @include("admin.includes.alert")
-									<h2>Add Category</h2>
+									<h2>Add Testimonial</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 										</li>
@@ -50,7 +50,7 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form action="{{route('categories.store')}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+									<form action="{{route('testimonials.store')}}" method="POST" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" >
                                       @csrf 
 										<div class="form-group mb-3 row">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="add-category">Name <span class="required">*</span>
@@ -64,6 +64,16 @@
 										</div>
 
 										<div class="form-group mb-3 row">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Profession<span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="text" id="profession" required="required" class="form-control " name="profession" value="{{old('profession')}}">
+												@error('profession')
+												<div class="alert alert-warning">{{$message}}</div>
+												@enderror
+											</div>
+										</div>
+										<div class="form-group mb-3 row">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="description">Description<span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
@@ -73,7 +83,24 @@
 												@enderror
 											</div>
 										</div>
-										
+										<div class="form-group mb-3 row">
+											<label class="col-form-label col-md-3 col-sm-3 label-align">Published</label>
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" class="flat" name="pub" @checked(old("pub"))>
+												</label>
+											</div>
+										</div>
+										<div class="form-group mb-3 row">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="image">Image <span class="required">*</span>
+											</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="file" id="image" name="image" required="required" class="form-control" accept="image/*"/>
+												@error('image')
+												<div class="alert alert-warning">{{$message}}</div>
+												@enderror
+											</div>
+										</div>
 										<div class="ln_solid"></div>
 										<div class="form-group mb-3 row">
 											<div class="col-md-6 col-sm-6 offset-md-3">

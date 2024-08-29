@@ -4,6 +4,7 @@
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\jobsController;
 use App\Http\Controllers\admin\TestimonialController;
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(CategoryController::class)->group(function(){
@@ -33,4 +34,13 @@ Route::controller(TestimonialController::class)->group(function(){
     Route::get('testimonials/{id}/edit','edit')->name('testimonials.edit')->whereNumber('id');
     Route::put('testimonials/{id}','update')->name('testimonials.update');
     Route::delete('testimonials/{id}','destroy')->name('testimonials.destroy');
+});
+
+Route::controller(UserController::class)->group(function(){
+    Route::get('users/create','create')->name('users.create');
+    Route::post('users','store')->name('users.store');
+    Route::get('users','index')->name('users.index');
+    Route::get('users/{id}/edit','edit')->name('users.edit')->whereNumber('id');
+    Route::put('users/{id}','update')->name('users.update');
+    Route::delete('users/{id}','destroy')->name('users.destroy');
 });

@@ -119,6 +119,7 @@ class jobsController extends Controller
         return redirect()->route('jobs.index');
     }
 
+
     // لم يتم مراجعةالباقي
     /**
      * Remove the specified resource from storage.

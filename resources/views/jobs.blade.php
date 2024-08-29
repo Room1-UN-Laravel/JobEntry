@@ -86,12 +86,12 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('assets/img/job/'.$job['img'])}}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">{{$job['title']}}</h5>
-                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ $job->location }}</span>
+                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{ $job->job_nature }}</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>${{ $job->min_salary}} - ${{ $job->max_salary}}</span>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
@@ -104,7 +104,14 @@
                                 </div>
                             </div>
                             @endforeach
-                            <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                          
+                                        @if($job->deadline)
+                                        <small class="text-truncate">
+                                            <i class="far fa-calendar-alt text-primary me-2"></i>Date Line: {{ $job->deadline->format('d M, Y') }}</small>
+                                   @else
+                                   <small class="text-truncate">
+                                   <i class="far fa-calendar-alt text-primary me-2"></i>Date Line: Not Available</small>
+                                   @endif
                         </div>
                     @endforeach
                     </div>

@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -32,5 +32,9 @@ Route::get('testimonial',[TestimonialController::class,'testimonial'])->name('te
 
 
 
-Auth::routes();
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+// Auth::routes();
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\jobsController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\contactsController;
 use Illuminate\Support\Facades\Route;
 
 Route::controller(CategoryController::class)->group(function(){
@@ -44,3 +45,6 @@ Route::controller(UserController::class)->group(function(){
     Route::put('users/{id}','update')->name('users.update');
     Route::delete('users/{id}','destroy')->name('users.destroy');
 });
+
+
+   
